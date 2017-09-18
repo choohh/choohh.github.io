@@ -76,7 +76,7 @@
         document.getElementById(volume_label_id[i]).innerHTML = 'Volume: ' + vol + 'dB';
     }
     var kick = new XMLHttpRequest();
-    kick.open("Get","snaresound.mp3",true);   //  <---- replace this file with yours
+    kick.open("Get","kicksound.wav",true);   //  <---- replace this file with yours
     kick.responseType = "arraybuffer";
     kick.onload = function(){
         context.decodeAudioData(kick.response, function(buffer){buffers[0] = buffer;});
@@ -90,7 +90,7 @@
     }
     snare.send();
     var hihat = new XMLHttpRequest();
-    hihat.open("Get","snaresound.mp3",true);  //  <---- replace this file with yours
+    hihat.open("Get","hihatsound.wav",true);  //  <---- replace this file with yours
     hihat.responseType = "arraybuffer";
     hihat.onload = function(){
         context.decodeAudioData(hihat.response, function(buffer){buffers[2] = buffer;});
