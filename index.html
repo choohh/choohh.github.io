@@ -117,11 +117,10 @@
     }
     function db2gain(db_gain) {
         var gain = 1.0;
-        gain = Math.pow(10,(db_gain/100));
+        gain = Math.pow(10,(db_gain/20));
         return gain
     }
     // keyboard mapping
-    
     function keyboardDown(key) {
         switch (key.keyCode) {
             case 65: //'a'
