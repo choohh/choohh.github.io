@@ -8,7 +8,7 @@
 <body>
 	<h1> Load and Play Audio Files on the Server </h1>
 	<p>Open an audio file from the server side and play/stop it by clicking the buttons.</p>
-	loadsound(url);
+	<button onclick="loadSound(url)">Load</button>
 	<button onclick="playSound(myAudioBuffer)">Play</button>
 	<button onclick="stopSound()">Stop</button>
 	<p>Composed by Heonho CHOO</p>
@@ -19,7 +19,7 @@
 	window.AudioContext = window.AudioContext || window.webkitAudioContext;
 	var context = new AudioContext;
 	var myAudioBuffer = null;
-	var url = "./disappeared_holyday.m4a";
+	var url = "./disappeared_holiday.m4a";
 	function loadSound(url) {
 	  var request = new XMLHttpRequest();
 	  request.open('GET', url, true);
