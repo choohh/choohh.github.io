@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype HTML>
 <html>
 
 <head>
@@ -10,32 +10,59 @@
     button {
         padding: 5px;
         background: rgb(200, 200, 200);
-        border: 1px solid rgb(122, 122, 122);
-        border-radius: 2px;
         outline: none;
         width:120px;
-        height:120px;
-        font-size:15px
+        height:80px;
+        font-size:20px
     }
-    button.active, button:active {
+    button.active, button.active {
         background: rgb(100, 100, 100);
         border: 1px solid rgb(0,0,0);
         box-shadow: 0 0 2px 0 rgb(0,0,0);
     }
-    div#kick{
+    div#bass{
         width:130px;
-        height:600px;
-        float:left;
-    }
-    #snare{
-        width:130px;
-        height:600px;
+        height:190px;
         float:left;
     }
     #hihat{
         width:130px;
-        height:600px;
+        height:190px;
         float:left;
+    }
+    #crash{
+        width:130px;
+        height:190px;
+        float:left;
+    }
+    #ride{
+        width:130px;
+        height:190px;
+        float:left;
+    }
+    #snare{
+        width:130px;
+        height:190px;
+        clear:left;
+        float:left;
+    }
+    #smalltom{
+        width:130px;
+        height:190px;
+        float:left;
+    }
+    #largetom{
+        width:130px;
+        height:190px;
+        float:left;
+    }
+    #floortom{
+        width:130px;
+        height:190px;
+        float:left;
+    }
+    #message{
+        clear:left;
     }
     input.volume {
         width:120px;
@@ -46,56 +73,143 @@
 <body>
 
 <h1> Homework#1: Beatbox </h1>
+<h2> 20160680 Choo, Heonho (Dept. of Chemistry)</h2>
 <br>
-<div id = "kick" align = "center">
-    <button id="kickPad" onmousedown="playdrum(0)" > Kick ('a' key)</button>
-    <p id="kickVolLabel"></p>
-    <input class="volume" onchange="changegain(0,this.value)" id="kickVol" title="Kick volume" type="range" min="-24" max ="0" value = "-12">
-</div>
-<div id = "snare" align = "center">
-    <button id="snarePad" onmousedown="playdrum(1)" > Snare ('s' key)</button>
-    <p id="snareVolLabel"></p>
-    <input class="volume" onchange="changegain(1,this.value)" id="snareVol" title="Snare volume" type="range" min="-24" max ="0" value = "-12">
+<div id = "bass" align = "center">
+    <button id="bassPad" onmousedown="playdrum(0)" style = "border: 3px solid rgb(3, 73, 179);
+    border-radius: 5px;"> <strong>Bass</strong><br>('A' key)</button>
+    <p id="bassVolLabel"></p>
+    <input class="volume" onchange="changegain(0,this.value)" id="bassVol" title="bass volume" type="range" min="-24" max ="0" value = "-12">
 </div>
 <div id = "hihat" align = "center">
-    <button id="hihatPad" onmousedown="playdrum(2)"> Hihat ('l' key)</button>
+    <button id="hihatPad" onmousedown="playdrum(1)" style = "border: 3px solid rgb(233, 187, 0);
+    border-radius: 5px;"> <strong>Hihat</strong><br>('S' key)</button>
     <p id="hihatVolLabel"></p>
-    <input class="volume" onchange="changegain(2,this.value)" id="hihatVol" title="Hihat volume" type="range" min="-24" max ="0" value = "-12">
+    <input class="volume" onchange="changegain(1,this.value)" id="hihatVol" title="Hihat volume" type="range" min="-24" max ="0" value = "-12">
 </div>
+<div id = "crash" align = "center">
+    <button id="crashPad" onmousedown="playdrum(2)" style = "border: 3px solid rgb(233, 187, 0);
+    border-radius: 5px;"> <strong>Crash</strong><br>('D' key)</button>
+    <p id="crashVolLabel"></p>
+    <input class="volume" onchange="changegain(2,this.value)" id="crashVol" title="Crash volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "ride" align = "center">
+    <button id="ridePad" onmousedown="playdrum(3)" style = "border: 3px solid rgb(233, 187, 0);
+    border-radius: 5px;"> <strong>Ride</strong><br>('F' key)</button>
+    <p id="rideVolLabel"></p>
+    <input class="volume" onchange="changegain(3,this.value)" id="rideVol" title="Ride volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "snare" align = "center">
+    <button id="snarePad" onmousedown="playdrum(4)" style = "border: 3px solid rgb(165, 0, 22);
+    border-radius: 5px;"> <strong>Snare</strong><br>('J' key)</button>
+    <p id="snareVolLabel"></p>
+    <input class="volume" onchange="changegain(4,this.value)" id="snareVol" title="Snare volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "smalltom" align = "center">
+    <button id="smalltomPad" onmousedown="playdrum(5)" style = "border: 3px solid rgb(230, 92, 0);
+    border-radius: 5px;"> <strong>Small Tom</strong><br>('K' key)</button>
+    <p id="smalltomVolLabel"></p>
+    <input class="volume" onchange="changegain(5,this.value)" id="smalltomVol" title="Smalltom volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "largetom" align = "center">
+    <button id="largetomPad" onmousedown="playdrum(6)" style = "border: 3px solid rgb(230, 92, 0);
+    border-radius: 5px;"> <strong>Large Tom</strong><br>('L' key)</button>
+    <p id="largetomVolLabel"></p>
+    <input class="volume" onchange="changegain(6,this.value)" id="largetomVol" title="Largetom volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "floortom" align = "center">
+    <button id="floortomPad" onmousedown="playdrum(7)" style = "border: 3px solid rgb(230, 92, 0);
+    border-radius: 5px;"> <strong>Floor Tom</strong><br>(' ; ' key)</button>
+    <p id="floortomVolLabel"></p>
+    <input class="volume" onchange="changegain(7,this.value)" id="floortomVol" title="Floortom volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "message" align = "left">
+    <ul>
+      <li>All drum sounds are edited voice sounds.</li>
+      <li>Recorded and edited by using Audacity 2.1.3.</li>
+      <li>My first HTML project! :-)</li>
+    </ul>
+</div>
+<img src = "drum_structure.png" width = "480" style="position: absolute; left: 550px; top: 140px" title = "Structure of drum">
 
 <script>
     var context = new (window.AudioContext || window.webkitAudioContext)();
-    var buffers = new Array(3); // 0 : kick, 1 : snare, 2 : hihat
-    var volume_id = new Array("kickVol","snareVol","hihatVol");
-    var volume_label_id = new Array("kickVolLabel","snareVolLabel","hihatVolLabel");
-    var gain_nodes = new Array(3);
-    for (i  = 0; i < 3; i++) {
+    var buffers = new Array(8); /*
+    0 : bass, 1 : hihat, 2 : crash, 3 : ride,
+    4 : snare, 5 : smalltom, 6 : largetom, 7 : floortom*/
+    var volume_id = new Array("bassVol","hihatVol","crashVol","rideVol","snareVol","smalltomVol","largetomVol","floortomVol");
+    var volume_label_id = new Array("bassVolLabel","hihatVolLabel","crashVolLabel","rideVolLabel","snareVolLabel","smalltomVolLabel","largetomVolLabel","floortomVolLabel");
+    var gain_nodes = new Array(8);
+    for (i  = 0; i < 8; i++) {
         gain_nodes[i] = context.createGain();
         var vol = document.getElementById(volume_id[i]).value;
         gain_nodes[i].gain.value = db2gain(vol);
         document.getElementById(volume_label_id[i]).innerHTML = 'Volume: ' + vol + 'dB';
     }
-    var kick = new XMLHttpRequest();
-    kick.open("Get","kicksound.wav",true);   //  <---- replace this file with yours
-    kick.responseType = "arraybuffer";
-    kick.onload = function(){
-        context.decodeAudioData(kick.response, function(buffer){buffers[0] = buffer;});
+    var bass = new XMLHttpRequest();
+    bass.open("Get","bass.wav",true);   //  <---- replace this file with yours
+    bass.responseType = "arraybuffer";
+    bass.onload = function(){
+        context.decodeAudioData(bass.response, function(buffer){buffers[0] = buffer;});
     }
-    kick.send();
-    var snare = new XMLHttpRequest();
-    snare.open("Get","snaresound.mp3",true);  //  <---- replace this file with yours
-    snare.responseType = "arraybuffer";
-    snare.onload = function(){
-        context.decodeAudioData(snare.response, function(buffer){buffers[1] = buffer;});
-    }
-    snare.send();
+    bass.send();
+
     var hihat = new XMLHttpRequest();
-    hihat.open("Get","hihatsound.wav",true);  //  <---- replace this file with yours
+    hihat.open("Get","hihat.wav",true);  //  <---- replace this file with yours
     hihat.responseType = "arraybuffer";
     hihat.onload = function(){
-        context.decodeAudioData(hihat.response, function(buffer){buffers[2] = buffer;});
+        context.decodeAudioData(hihat.response, function(buffer){buffers[1] = buffer;});
     }
     hihat.send();
+
+    var crash = new XMLHttpRequest();
+    crash.open("Get","crash.wav",true);   //  <---- replace this file with yours
+    crash.responseType = "arraybuffer";
+    crash.onload = function(){
+        context.decodeAudioData(crash.response, function(buffer){buffers[2] = buffer;});
+    }
+    crash.send();
+
+    var ride = new XMLHttpRequest();
+    ride.open("Get","ride.wav",true);  //  <---- replace this file with yours
+    ride.responseType = "arraybuffer";
+    ride.onload = function(){
+        context.decodeAudioData(ride.response, function(buffer){buffers[3] = buffer;});
+    }
+    ride.send();
+
+    var snare = new XMLHttpRequest();
+    snare.open("Get","snare.wav",true);  //  <---- replace this file with yours
+    snare.responseType = "arraybuffer";
+    snare.onload = function(){
+        context.decodeAudioData(snare.response, function(buffer){buffers[4] = buffer;});
+    }
+    snare.send();
+
+    var smalltom = new XMLHttpRequest();
+    smalltom.open("Get","smalltom.wav",true);  //  <---- replace this file with yours
+    smalltom.responseType = "arraybuffer";
+    smalltom.onload = function(){
+        context.decodeAudioData(smalltom.response, function(buffer){buffers[5] = buffer;});
+    }
+    smalltom.send();
+
+    var largetom = new XMLHttpRequest();
+    largetom.open("Get","largetom.wav",true);  //  <---- replace this file with yours
+    largetom.responseType = "arraybuffer";
+    largetom.onload = function(){
+        context.decodeAudioData(largetom.response, function(buffer){buffers[6] = buffer;});
+    }
+    largetom.send();
+
+    var floortom = new XMLHttpRequest();
+    floortom.open("Get","floortom.wav",true);  //  <---- replace this file with yours
+    floortom.responseType = "arraybuffer";
+    floortom.onload = function(){
+        context.decodeAudioData(floortom.response, function(buffer){buffers[7] = buffer;});
+    }
+    floortom.send();
+
     window.onload=function(){
         window.addEventListener('keydown', function (key) {
             keyboardDown(key);
@@ -117,43 +231,88 @@
     }
     function db2gain(db_gain) {
         var gain = 1.0;
-        gain = Math.pow(10,db_gain/20);
+        gain = Math.pow(10,(db_gain)/20);
         return gain
     }
     // keyboard mapping
     function keyboardDown(key) {
         switch (key.keyCode) {
             case 65: //'a'
-                var kickpad = document.getElementById("kickPad");
-                kickpad.className = 'active';
-                simulateClick(kickpad);
+                var basspad = document.getElementById("bassPad");
+                basspad.className = 'active';
+                simulateClick(basspad);
                 break;
             case 83: //'s'
-                var snarepad = document.getElementById("snarePad");
-                snarepad.className = 'active';
-                simulateClick(snarepad);
-                break;
-            case 76: //'l'
                 var hihatpad = document.getElementById("hihatPad");
                 hihatpad.className = 'active';
                 simulateClick(hihatpad);
                 break;
+            case 68: //'d'
+                var crashpad = document.getElementById("crashPad");
+                crashpad.className = 'active';
+                simulateClick(crashpad);
+                break;
+            case 70: //'f'
+                var ridepad = document.getElementById("ridePad");
+                ridepad.className = 'active';
+                simulateClick(ridepad);
+                break;
+            case 74: //'j'
+                var snarepad = document.getElementById("snarePad");
+                snarepad.className = 'active';
+                simulateClick(snarepad);
+                break;
+            case 75: //'k'
+                var smalltompad = document.getElementById("smalltomPad");
+                smalltompad.className = 'active';
+                simulateClick(smalltompad);
+                break;
+            case 76: //'l'
+                var largetompad = document.getElementById("largetomPad");
+                largetompad.className = 'active';
+                simulateClick(largetompad);
+                break;
+            case 186: //';'
+                var floortompad = document.getElementById("floortomPad");
+                floortompad.className = 'active';
+                simulateClick(floortompad);
+                break;
         }
     }
     function keyboardUp(key) {
-        switch (key.keyCode) {
-            case 65: //'a'
-                var kickpad = document.getElementById("kickPad");
-                kickpad.className = '';
-                break;
-            case 83: //'s'
-                var snarepad = document.getElementById("snarePad");
-                snarepad.className = '';
-                break;
-            case 76: //'l'
-                var hihatpad = document.getElementById("hihatPad");
-                hihatpad.className = '';
-                break;
+      switch (key.keyCode) {
+          case 65: //'a'
+              var basspad = document.getElementById("bassPad");
+              basspad.className = '';
+              break;
+          case 83: //'s'
+              var hihatpad = document.getElementById("hihatPad");
+              hihatpad.className = '';
+              break;
+          case 68: //'d'
+              var crashpad = document.getElementById("crashPad");
+              crashpad.className = '';
+              break;
+          case 70: //'f'
+              var ridepad = document.getElementById("ridePad");
+              ridepad.className = '';
+              break;
+          case 74: //'j'
+              var snarepad = document.getElementById("snarePad");
+              snarepad.className = '';
+              break;
+          case 75: //'k'
+              var smalltompad = document.getElementById("smalltomPad");
+              smalltompad.className = '';
+              break;
+          case 76: //'l'
+              var largetompad = document.getElementById("largetomPad");
+              largetompad.className = '';
+              break;
+          case 186: //';'
+              var floortompad = document.getElementById("floortomPad");
+              floortompad.className = '';
+              break;
         }
     }
     // simulated mousedown on buttons
