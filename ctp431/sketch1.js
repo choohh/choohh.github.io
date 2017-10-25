@@ -44,11 +44,14 @@ function draw() {
   for (j = 0; j < 5; j++) {
     line(cx+le*sin(18+36*j), cy-le*cos(18+36*j), cx-le*sin(18+36*j), cy+le*cos(18+36*j))
   }
-  push();
+
   stroke(rgb(0,0,0));
+  strokeWeight(4);
   line(cx, cy, cx+100*sin(18), cy-100*cos(18));
-  pop();
-  
+
+  stroke(lineColor);
+  strokeWeight(lineWeight);
+
   soundanl();
 
   var c = color(decagonColor);
