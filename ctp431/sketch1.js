@@ -13,7 +13,7 @@ var cx = "global";
 var cy = "global";
 var cs = 60; //Circle Size(radius)
 var le = 1000; //Line Expansion factor
-var ee = 2; //band energy expansion factor
+var ee = 1.8; //band energy expansion factor
 var bandEng = []; //average energy of each frequency band
 var bandCut = [20, 40, 80, 160, 320, 640, 1280, 2560, 5120, 10240, 20480];
 
