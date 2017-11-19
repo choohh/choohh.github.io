@@ -2,24 +2,24 @@ var context = new AudioContext()
 var synth;
 
 var synth_params = {
-	lfoRate:0,
-	lfoDepth:0.5,
-	filterCutoffFreq:5000,
+	lfoRate:3.6,
+	lfoDepth:0.21,
+	filterCutoffFreq:2200,
 	filterQ:1,
-	filterEnvAttackTime: 0.1,
+	filterEnvAttackTime: 0.4,
 	filterEnvDecayTime: 0.2,
 	filterEnvSustainLevel: 0.9,
-	filterEnvReleaseTime: 0.1,
-	ampEnvAttackTime: 0.1,
-	ampEnvDecayTime: 0.2,
-	ampEnvSustainLevel: 0.9,
-	ampEnvReleaseTime: 0.1
+	filterEnvReleaseTime: 0.9,
+	ampEnvAttackTime: 0.48,
+	ampEnvDecayTime: 0.40,
+	ampEnvSustainLevel: 0.67,
+	ampEnvReleaseTime: 0.32
 };
 
 var delay_params = {
-	delayTime: 0.3,
-	delayFeedbackGain: 0.2,
-	delayWetDry: 0.1
+	delayTime: 0.46,
+	delayFeedbackGain: 0.39,
+	delayWetDry: 0.4
 }
 var reverb_params = {
 	reverbWetDry: 0.5
@@ -30,8 +30,10 @@ var temp = context.createOscillator();
 
 var synth = new Synth(context, synth_params);
 var delay = new Delay(context, delay_params);
+var reverb = new Reverb(context, reverb_params);
 
 synth.connect(delay);
+synth.connect(reverb);
 
 // launch MIDI
 if (navigator.requestMIDIAccess)
@@ -132,6 +134,14 @@ nx.onload = function() {
 	gui_delay_wet_dry.set({ value: delay_params.delayWetDry })
 	gui_delay_wet_dry.on('*',function(data) {
 		delay.updateParams('delay_dry_wet', data.value);
+	});
+
+	// reverb
+	gui_reverb_time.min = 0;
+	gui_reverb_time.max = 1;
+	gui_reverb_time.set({ value: reverb_params.reverbWetDry })
+	gui_reverb_time.on('*',function(data) {
+		delay.updateParams('reverb_dry_wet', data.value);
 	});
 
 	// Keyboard

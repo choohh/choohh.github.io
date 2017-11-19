@@ -1,38 +1,40 @@
 var Reverb = function(context, parameters) {
-
 	this.context = context;
 	this.input = context.createGain();
 
-	// create nodes
+	var irbuffer;
+	this.context = context;
+	var ir = new XMLHttpRequest();
+	ir.open('GET', "ir.wav", true);
+	ir.responseType = 'arraybuffer';
+	ir.onload = function() {
+			context.decodeAudioData(ir.response, function(buffer) {
+					irbuffer = buffer;
+			});
+	}
+	ir.send();
+
 	this.wetGain = context.createGain();
 	this.dryGain = context.createGain();
+	this.convolver = context.createConvolver();
+  this.convolver.buffer = ir.buffer;
 
-	// connect
-	this.input.connect(this.delayLine);
-	this.delayLine.connect(this.feedbackGain);
-	this.feedbackGain.connect(this.wetGain);
-	this.feedbackGain.connect(this.delayLine);
+	this.convolver.connect(this.wetGain);
 
-	this.input.connect(this.dryGain);
+	this.wetGain.connect(context.destination);
+	this.dryGain.connect(context.destination);
 
-	this.dryGain.connect(this.context.destination);
-	this.wetGain.connect(this.context.destination);
-
-	this.delayLine.delayTime.value = parameters.delayTime;
-	this.feedbackGain.gain.value = parameters.delayFeedbackGain;
-
-	this.wetGain.gain.value = parameters.delayWetDry;
-	this.dryGain.gain.value = (1-parameters.delayWetDry);
+	this.wetGain.gain.value = parameters.reverbWetDry;
+	this.dryGain.gain.value = (1-parameters.reverbWetDry);
 
 	this.parameters = parameters;
 }
 
 
-Delay.prototype.updateParams = function (params, value) {
-
+Reverb.prototype.updateParams = function (params, value) {
 	switch (params) {
-		case 'delay_dry_wet':
-			this.parameters.delayWetDry = value;
+		case 'reverb_dry_wet':
+			this.parameters.reverbWetDry = value;
 			this.wetGain.gain.value = value;
 			this.dryGain.gain.value = 1 - value;
 			break;
