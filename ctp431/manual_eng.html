@@ -1,0 +1,60 @@
+<!doctype HTML>
+
+<html>
+<head>
+  <title> How to Use Chord Builder</title>
+  <link href='final.css' rel='stylesheet'></link>
+</head>
+<body id=manual>
+  <h1> User Manual for Chord Builder </h1>
+  <h2> 20160680 Heonho Choo (KAIST, Dept. of Chemistry)</h2>
+  <p>&nbsp;</p>
+  <h3> I. Introduction</h3>
+  <p>&nbsp;&nbsp; CHORD BUILDER is a program that helps amateur guitarists to study about various chord shapes and concepts of theory of harmony beyond the chords.
+  This program is for one who has basic knowledge and playability of guitar and chord, not for layperson. There are so many chords and chord shapes on fretboard of guitar.
+  But it's impossible to memorize all of those chords and chord shapes. So, most beginners first memorize shapes of few basic easy chords such as C, F, G, A.
+  The next step is to memorize typical chord shapes putting fundamental note at 5th and 6th string. They can use such typical shapes as a powerful tool by moving hand to
+  another fundamental notes by maintaining hand shape.
+  <br>&nbsp;&nbsp;This advanced method allows player to play many chords by memorizing few shapes. But this has limitation. Chord shapes on guitar fretboard must be located
+  nearby each other to minimize the moving of guitarist's hand during performance. It makes playing more stable. So guitarists investigate and design to gather chord shapes to specific fret range.
+  This process is called 'chord voicing.'
+  <br>&nbsp;&nbsp;One of the most effective way to practice chord voicing is designing your own chord shape by yourself. By doing that, amateur guitarists can learn about harmonic concepts and get
+  sense for location of specific pitch on fretboard. But beginners can feel pressured before starting such practices alone. That's why I decided to make this program.
+  This program randomly designate chord and fret range. Then player must make own chord shape of designated chord inside designated range. Program will inform you whether you made chord shape correctly or not.
+  I sure that this program will be helpful for many amateur guitarists!</p>
+
+  <p>&nbsp;</p>
+  <h3>II. How to Use</h3>
+  <p>&nbsp;&nbsp;1. Click anywhere on fretboard. You can hear the sound matched to the clickd loction on fretboard. If you want to make sound of open string, click the margin at left of the fretboard.
+  <br>&nbsp;&nbsp;2. Press 'Choose Chord' button. Game started! Numjukiee(KAIST mascot) will say chord randomly. Also designated fret range will be shown dark.
+  <br>&nbsp;&nbsp;3. In designated range, you can mark points by clicking. Just click one more time to delete marking. You cannot mark at two point on same string, of course.
+  <br>&nbsp;&nbsp;4. Make your own chord shape of the chord that Nubjukiee said by marking with white circles!
+  <br>&nbsp;&nbsp;5. Press 'Submit' button if you're finished. If your own chord shape is not the one of designated chord, you'll see the messaye saying "Wrong! Try again."
+  <br>&nbsp;&nbsp;6. If your answer is correct, fretboard will be cleared. Also progress and score will increase. Finally, You can see time you spend to think about the answer.
+  <br>&nbsp;&nbsp;7. Press 'Choose Chord' button again if you want to try with another chord. </p>
+
+  <p>&nbsp;</p>
+  <h3>III. Characteristics of Algorithm</h3>
+  <p>&nbsp;&nbsp;1. Distances between guitar frets follows log scale. This program automatically calculate proper distances between frets based on width and height of screen.
+  <br>&nbsp;&nbsp;2. A4 = 440Hz is located at 5th fret of 1st string. Based on this reference, frequency of each fret of each string is saved in this program. Sound is a triangle type wave made by Web Audio API.
+  <br>&nbsp;&nbsp;3. There is a rule that indicates which note should be included in specific chord. (For example, minor chords are consisted of fundamental note, minor 3rd, perfect 5th.) This program automatically calculate what pitch is required for designated chord from given fundamental note and chord type and use that for grading.
+  <br>&nbsp;&nbsp;4. p5.js was used. draw() function of p5 check the status of fretboard 60 times per second and draw marking circle each time. This make it possible to mark quickly by just clicking.
+
+  <p>&nbsp;</p>
+  <h3>IV. Limitation and Improvement Direction</h3>
+  <p>&nbsp;&nbsp;1. There is no other tuning state except EBGDAE standard tuning. Many other optional tuning states have to be added.
+  <br>&nbsp;&nbsp;2. Sound is too simple because it's triangle type wave. Sound similar to real guitar sound must be made by waveform customizing. Furthermore, diffrent sound for guitar brands such as Fender and Gibson can be made and added.
+  <br>&nbsp;&nbsp;3. In this program, fret range include four frets because it is hard to play two far notes instantly. But actually this is too simple idea. If player make chord shape that is easier to play in four-fret-range, higher score must be given. For this improvment, additional research about structure of human hand have to be done.
+  <br>&nbsp;&nbsp;4. All of user data is deleted when player restart web page. Checking record must be available by constructing server.
+  <br>&nbsp;&nbsp;5. It would be better to make 'Hint' button so that players can get hint about harmonic informations or designated chord type.</p>
+
+  <p>&nbsp;</p>
+  <h3>V. References</h3>
+  <p>&nbsp;&nbsp;1. "Jazz Harmony", Jaeyeol Jung, JazzBiz, 2011.
+  <br>&nbsp;&nbsp;2. "How to Calculate Distance Between Guitar Frets", <a href=http://guzene.tistory.com/86 target="_blank">http://guzene.tistory.com/86</a>
+  <br>&nbsp;&nbsp;3. "Web Audio API OscillatorNode", <a href=https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode</a>
+
+  <br><br><br>
+  <button id="goback" onclick="window.location.href='./final.html'"> Go to play </button>
+</body>
+</html>
